@@ -43,7 +43,7 @@ D領域　優先度　低い　重要度　低い
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :tasks
@@ -53,7 +53,7 @@ D領域　優先度　低い　重要度　低い
 ## projectsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|project_name|string|null: false|
+|name|string|null: false|
 |menber_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key:true|
 
@@ -66,7 +66,7 @@ D領域　優先度　低い　重要度　低い
 ## menbersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|menber_name|string|null: false|
+|name|string|null: false|
 |mail|string|null: false|
 |project_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key:true|
