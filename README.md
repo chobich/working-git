@@ -29,10 +29,10 @@ Things you may want to cover:
 本アプリでは、個人の持つ業務(task)を重要度と優先度毎の４つに分類し管理を行う。
 そのtaskは４つの項目に分けることが出来る。
 
-A領域　優先度　高い　重要度　高い  
-B領域　優先度　低い　重要度　高い  
-C領域　優先度　高い　重要度　低い  
-D領域　優先度　低い　重要度　低い  
+A領域　優先度　高い　重要度　高い
+B領域　優先度　低い　重要度　高い
+C領域　優先度　高い　重要度　低い
+D領域　優先度　低い　重要度　低い
 
 またtaskはメンバー毎、プロジェクト毎、チーム毎に分けられる。
 このタスクを個人ではもちろんのこと、グループやプロジェクトで共有することで
@@ -42,7 +42,7 @@ D領域　優先度　低い　重要度　低い
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :tasks
@@ -52,7 +52,7 @@ D領域　優先度　低い　重要度　低い
 ## projectsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|project_name|string|null: false|
+|name|string|null: false|
 |menber_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key:true|
 
@@ -65,7 +65,7 @@ D領域　優先度　低い　重要度　低い
 ## menbersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|menber_name|string|null: false|
+|name|string|null: false|
 |mail|string|null: false|
 |project_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key:true|
