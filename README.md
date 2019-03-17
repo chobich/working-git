@@ -22,6 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
 概要
 
 企業には多くの個人が属している。組織の中における個人において、
@@ -77,7 +78,6 @@ D領域　優先度　低い　重要度　低い
 
 ## tasksテーブル
 |Column|Type|Options|
-|------|----|-------|
 |content|string|null: false|
 |priority_type|string|null: false|
 |project_id|references|null: false, foreign_key: true|
