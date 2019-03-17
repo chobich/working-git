@@ -22,4 +22,70 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# working-git
+
+概要
+
+企業には多くの個人が属している。組織の中における個人において、
+チームやグループ、プロジェクトなど与えられる役割や業務は多様である。
+本アプリでは、個人の持つ業務(task)を重要度と優先度毎の４つに分類し管理を行う。
+そのtaskは４つの項目に分けられる。
+
+A領域　優先度　高い　重要度　高い
+B領域　優先度　低い　重要度　高い
+C領域　優先度　高い　重要度　低い
+D領域　優先度　低い　重要度　低い
+
+またtaskはメンバー毎、プロジェクト毎、チーム毎に分けられる。
+このタスクを個人ではもちろんのこと、グループやプロジェクトで共有することで
+生産性の向上に努めることが本アプリの目的である。
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|group_name|string|null: false|
+
+### Association
+- has_many :tasks
+- has_many :projects
+- has_many :menbers
+
+## projectsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|project_name|string|null: false|
+|menber_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key:true|
+
+### Association
+- belongs_to :group
+- belogns_to :menber
+- has_many :tasks
+- has_many :menbers
+
+## menbersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|menber_name|string|null: false|
+|mail|string|null: false|
+|project_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key:true|
+
+### Association
+- belongs_to :group
+- has_many :projects
+- has_many :tasks
+
+## tasksテーブル
+|Column|Type|Options|
+|------|----|-------|
+|content|string|null: false|
+|priority_type|string|null: false|
+|project_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key:true|
+|menber_id|references|null: false, foreign_key:true|
+
+### Association
+- belongs_to :group
+- belongs_to :menber
+- belongs_to :project
