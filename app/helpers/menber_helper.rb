@@ -1,0 +1,2 @@
+module MenberHelper
+end

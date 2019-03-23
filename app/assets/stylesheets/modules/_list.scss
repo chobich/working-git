@@ -1,0 +1,131 @@
+@mixin body(){
+  height: 100vh;
+  width: -webkit-calc((100vw - 90px) / 3);
+  width: calc((100vw - 60px) / 3);
+  display: inline-block;
+  overflow-y: scroll;
+  background-color:white;
+  margin-top:10px;
+}
+
+@mixin box-head(){
+  border-style: solid;
+  border-radius: 0.4em;
+  border-width: 1px;
+  margin-left: 20px;
+}
+
+@mixin contens-border(){
+  justify-content: space-around;
+  display: flex;
+  align-items:stretch;
+  padding: 5px;
+  align-self: stretch;
+  border-width:1px;
+  border-style: solid;
+  border-radius: 0.5em;
+  margin: 5px 5px;
+  text-align: center;
+
+}
+.index{
+  background-color: $body_backgroundcolor;
+  .menber-box{
+  @include body();
+  @include box-head();
+  border-color: $menber_backgroundcolor;
+
+  &__title{
+    text-align: center;
+    padding: 10px 0px;
+    color: $menber_color;
+    background-color: $menber_backgroundcolor;
+  }
+  .menber-contens{
+    @include contens-border();
+    &__name{
+      padding:5px;
+      width:calc(100% / 3);
+    }
+    &__taskA{
+      color: $task_color;
+      background-color:$taskA_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+    }
+    &__taskC{
+      color: $task_color;
+      background-color:$taskC_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+    }
+    }
+  }
+
+  .group-box{
+  @include body();
+  @include box-head();
+  border-color: $group_backgroundcolor;
+  margin-left: 10px;
+  &__title{
+    text-align: center;
+    padding: 10px 0px;
+    color: $group_color;
+    background-color: $group_backgroundcolor;
+  }
+    .group-contens{
+      @include contens-border();
+    &__name{
+      padding:5px;
+      width:calc(100% / 3);
+    }
+    &__taskA{
+      color: $task_color;
+      background-color:$taskA_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+
+    }
+    &__taskC{
+      color: $task_color;
+      background-color:$taskC_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+    }
+  }
+}
+
+  .project-box{
+  @include body();
+  @include box-head();
+  border-color: $project_backgroundcolor;
+  margin-left: 10px;
+  &__title{
+    text-align: center;
+    padding: 10px 0px;
+    color: $project_color;
+    background-color: $project_backgroundcolor;
+  }
+    .project-contens{
+      @include contens-border();
+    &__name{
+      padding:5px;
+      width:calc(100% / 3);
+    }
+    &__taskA{
+      color: $task_color;
+      background-color:$taskA_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+
+    }
+    &__taskC{
+      color: $task_color;
+      background-color:$taskC_backgroundcolor;
+      padding:5px;
+      width:calc(100% / 4);
+    }
+  }
+}
+}
+
