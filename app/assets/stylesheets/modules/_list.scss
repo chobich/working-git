@@ -30,18 +30,18 @@
 }
 .index{
   background-color: $body_backgroundcolor;
-  .menber-box{
+  .member-box{
   @include body();
   @include box-head();
-  border-color: $menber_backgroundcolor;
+  border-color: $member_backgroundcolor;
 
   &__title{
     text-align: center;
     padding: 10px 0px;
-    color: $menber_color;
-    background-color: $menber_backgroundcolor;
+    color: $member_color;
+    background-color: $member_backgroundcolor;
   }
-  .menber-contens{
+  .member-contens{
     @include contens-border();
     &__name{
       padding:5px;
