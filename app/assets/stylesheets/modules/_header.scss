@@ -1,3 +1,16 @@
+@mixin btn(){
+    font-size: $header_login_size;
+    color: $header_menu_color;
+    background-color: $header_menu_backgroundcolor;
+    border-width: 1px;
+    border-color: $header_menu_color;
+    border-style: solid;
+    border-radius: 0.5em;
+    position:absolute;
+    top:2px;
+    text-align: center;
+}
+
 .header{
   width:100vw;
   &__title{
@@ -8,35 +21,19 @@
 
   &__login{
     @include clearfix();
+    @include btn();
     float:left;
     margin: 10px 0px 10px 10px;
     padding: 10px 5px;
-    font-size: $header_login_size;
-    color: $header_menu_color;
-    background-color: $header_menu_backgroundcolor;
-    border-width: 1px;
-    border-color: $header_menu_color;
-    border-style: solid;
-    border-radius: 0.5em;
-    position:absolute;
-    top:2px;
-    right:120px;
+    right:140px;
   }
 
   &__new{
+    @include btn();
     float: right;
-    width: 4em;
+    width: 5em;
     margin: 10px 20px 5px 5px;
     padding: 10px 5px;
-    font-size: $header_login_size;
-    color: $header_menu_color;
-    background-color: $header_menu_backgroundcolor;
-    border-width: 1px;
-    border-color: $header_menu_color;
-    border-style: solid;
-    border-radius: 0.5em;
-    position:absolute;
-    top:2px;
     right:0px;
   }
 }
