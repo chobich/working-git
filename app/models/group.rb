@@ -1,5 +1,0 @@
-class Group < ApplicationRecord
-  has_many :tasks
-  has_many :projects
-  has_many :menbers
-end
