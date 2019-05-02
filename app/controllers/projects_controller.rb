@@ -4,8 +4,6 @@ class ProjectsController < ApplicationController
     @project.tasks.build
     @tasks = Task.includes(:member, :group, :project).last(5)
     @projects = Project.includes(:member).last(5)
-        # @tasks = Task.includes(:member, :project, :group).limit(5)
-
   end
 
   def create
@@ -36,9 +34,5 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, tasks_attributes: [:content, :priority_type]).merge(member_id: current_member.id)
-  end
-
-  def set_member
-    @member = Member.find(params[:member_id])
   end
 end
