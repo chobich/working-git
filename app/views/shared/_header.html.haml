@@ -3,9 +3,9 @@
     Working!
   - if member_signed_in?
     .header__login
-      = link_to "ログアウト",destroy_member_session_path,method: :delete
+      = link_to "ログアウト" ,destroy_member_session_path,method: :delete
     .header__new
-      = link_to "マイページ"
+      = link_to "マイページ" ,member_projects_path(member_id:current_member.id)
   - else
     .header__login
       = link_to "ログイン" ,new_member_session_path

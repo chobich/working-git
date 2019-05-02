@@ -6,6 +6,11 @@
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name"
   .field
+    = f.label :group
+    %br/
+    = f.fields_for :group, resource.build_group do |name|
+      = name.text_field :name, autofocus: true, autocomplete: "name"
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
