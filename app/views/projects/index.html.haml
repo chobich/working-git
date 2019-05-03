@@ -1,0 +1,8 @@
+= render 'shared/header'
+= render 'shared/post'
+
+- @tasks.each do |task|
+  =task.content
+  =task.priority_type
+- @projects.each do |project|
+  =project.name

@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_034643) do
+ActiveRecord::Schema.define(version: 2019_05_02_055457) do
+
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "member_id"
+    t.index ["member_id"], name: "index_groups_on_member_id"
+  end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -26,4 +33,30 @@ ActiveRecord::Schema.define(version: 2019_03_24_034643) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "member_id"
+    t.index ["member_id"], name: "index_projects_on_member_id"
+  end
+
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.string "priority_type"
+    t.bigint "project_id"
+    t.bigint "group_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_tasks_on_group_id"
+    t.index ["member_id"], name: "index_tasks_on_member_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
+  add_foreign_key "groups", "members"
+  add_foreign_key "projects", "members"
+  add_foreign_key "tasks", "groups"
+  add_foreign_key "tasks", "members"
+  add_foreign_key "tasks", "projects"
 end

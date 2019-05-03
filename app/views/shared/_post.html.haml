@@ -1,0 +1,18 @@
+.form
+  = form_with model: @project, local: true, url: { action: "create" } do |project|
+    Project
+    = project.text_field :name
+    = project.fields_for :tasks , local: true do |task|
+      task
+      = task.text_field :content
+      .label
+        priority-type:
+        = task.radio_button :priority_type, "A"
+        = label_tag("A","A")
+        = task.radio_button :priority_type, "B"
+        = label_tag("B","B")
+        = task.radio_button :priority_type, "C"
+        = label_tag("C","C")
+        = task.radio_button :priority_type, "D"
+        = label_tag("D","D")
+    = project.submit
