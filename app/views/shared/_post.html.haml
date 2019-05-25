@@ -1,18 +1,32 @@
-.form
+.post-form
   = form_with model: @project, local: true, url: { action: "create" } do |project|
-    Project
-    = project.text_field :name
-    = project.fields_for :tasks , local: true do |task|
-      task
-      = task.text_field :content
-      .label
-        priority-type:
-        = task.radio_button :priority_type, "A"
-        = label_tag("A","A")
-        = task.radio_button :priority_type, "B"
-        = label_tag("B","B")
-        = task.radio_button :priority_type, "C"
-        = label_tag("C","C")
-        = task.radio_button :priority_type, "D"
-        = label_tag("D","D")
-    = project.submit
+    .select-field
+      .select-field__field-name
+        新規タスクの登録
+      .select-field__project-title
+        プロジェクト
+      .select-field__project-select
+        = project.select :name, member_project_maker(project)
+    .input-field
+      = project.fields_for :tasks , local: true do |task|
+        .input-field__title
+          タスク
+        .input-field__content
+          = task.text_field :content, class: 'input-field__content__form', placeholder: 'タスクを入力してください'
+        .label__title
+          プライオリティ
+        .input-field__priority-box
+          .label__button
+            = task.radio_button :priority_type, "A"
+            = label_tag("project_tasks_attributes_0_priority_type_a","A: {重要度　高い　緊急度　高い}")
+          .label__button
+            = task.radio_button :priority_type, "B"
+            = label_tag("project_tasks_attributes_0_priority_type_b","B: {重要度　高い　緊急度　低い}")
+          .label__button
+            = task.radio_button :priority_type, "C"
+            = label_tag("project_tasks_attributes_0_priority_type_c","C: {重要度　低い　緊急度　高い}")
+          .label__button
+            = task.radio_button :priority_type, "D"
+            = label_tag("project_tasks_attributes_0_priority_type_d","D: {重要度　低い　緊急度　低い}")
+    .submit
+      = project.submit

@@ -1,23 +1,22 @@
 class ProjectsController < ApplicationController
+
+  before_action :set_group_member, only: [:index, :create]
+
   def index
     @project = Project.new
     @project.tasks.build
-    @tasks = Task.includes(:member, :group, :project).last(5)
-    @projects = Project.includes(:member).last(5)
+    @project_viewlist = Project.where(member_id: current_member.id).pluck(:name).uniq
   end
 
   def create
-    @group_member = Group.eager_load(:member)
     @project = Project.new(project_params)
     @project.save
-    if @task = Task.update(group_id: @group_member.last[:id], member_id: @group_member.last[:member_id])
+    Task.last.update(group_id: @group_member[:id], member_id: current_member.id)
+    if Task.last.update(group_id: @group_member[:id], member_id: current_member.id)
       respond_to do |format|
-        format.html {redirect_to member_projects_path(member_id: @group_member.last[:member_id])}
+        format.html {redirect_to member_projects_path(member_id: current_member.id)}
         format.json
       end
-
-    else
-      render json:nil
     end
   end
 
@@ -35,4 +34,10 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, tasks_attributes: [:content, :priority_type]).merge(member_id: current_member.id)
   end
-end
+
+  def set_group_member
+    @group_member = Group.find_by(member_id: current_member.id)
+  end
+
+
+  end

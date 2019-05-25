@@ -9,4 +9,6 @@ class Member < ApplicationRecord
 
   accepts_nested_attributes_for :group
 
+  validates :name, presence: true
+
 end

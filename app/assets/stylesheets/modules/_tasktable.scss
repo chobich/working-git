@@ -1,0 +1,140 @@
+@mixin title(){
+      display: flex;
+      width: 600px;
+
+}
+
+@mixin table-title(){
+  padding: 5px;
+  font-weight: bold;
+  color: #FFF;
+  background: #6091d3;
+  border: solid 3px #6091d3;
+  flex-grow: 1;
+}
+
+@mixin table-content(){
+  display: flex;
+  max-width: 600px;
+  margin-bottom: 10px;
+
+}
+
+@mixin table-content-p(){
+  display: flex;
+  min-width: 250px;
+  justify-content:space-between;
+  align-items: stretch;
+}
+
+@mixin table-column(){
+  max-height:15vh;
+  min-height: 150px;
+  overflow: scroll;
+  flex-grow: 1;
+  border: solid 3px #6091d3;
+  padding-left: 5px;
+}
+
+.member-name{
+    margin-left: 370px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    width: 580px;
+  }
+
+    .member-name:before{
+      position: absolute;
+      content: '';
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border: none;
+      border-left: solid 15px transparent;
+      border-bottom: solid 15px rgb(119, 195, 223);
+    }
+
+    .member-name:after{
+      position: absolute;
+      content: '';
+      bottom: -3px;
+      left: 10px;
+      width: 100%;
+      border-bottom: solid 3px rgb(119, 195, 223);
+    }
+
+.task-table{
+        margin-left: 370px;
+        width:800px;
+  .task-table-upper{
+    .task-table-upper-title{
+      @include title();
+
+      &__left{
+        @include table-title();
+      }
+
+      &__right{
+        @include table-title();
+        margin-left: 10px;
+      }
+    }
+
+    .task-table-upper-content{
+      @include table-content();
+      .p{
+        @include table-content-p();
+
+      }
+      &__left{
+        @include table-column();
+
+      &__content{
+
+
+      }
+      &__project{
+
+      }
+      }
+      &__right{
+        @include table-column();
+        margin-left: 10px;
+      }
+    }
+    }
+    .task-table-lower-title{
+      @include title();
+
+      &__left{
+        @include table-title();
+      }
+
+      &__right{
+        @include table-title();
+        margin-left: 10px;
+      }
+    }
+
+    .task-table-lower-content{
+      @include table-content();
+      .p{
+        @include table-content-p();
+      }
+      &__left{
+        @include table-column();
+      &__content{
+      }
+
+      &__project{
+      }
+
+      }
+      &__right{
+        @include table-column();
+        margin-left: 10px;
+      }
+    }
+  }

@@ -1,0 +1,68 @@
+@import "mixin/clearfix";
+
+@mixin side_border(){
+  padding: 0.25em 0.5em;
+  color: #494949;
+  background: transparent;
+  border-left: solid 5px #7db4e6;
+}
+
+.info-box{
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  padding: 0.5em 1em;
+  margin: 2em 20px;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  margin-left: 20px;
+  margin-right: 20px;
+  width:95vw;
+
+  .member-info{
+    height: 15vh;
+    width: 320px;
+    overflow: scroll;
+    background-color: white;
+    float: left;
+    display: inline;
+
+    &__name{
+      font-size: 16px;
+    }
+    &__group{
+      font-size: 16px;
+    }
+  }
+  .project-info{
+    @include clearfix();
+    @include side_border();
+    height: 15vh;
+    overflow-x: scroll;
+
+  }
+    &__title{
+    }
+    &__list{
+
+    }
+  }
+
+    .li{
+      color: #fb3f1e;
+      list-style: none;
+      display: inline-block;
+      width: 5%;
+      min-width: 100px;
+      border-right:2px solid #ddd;
+      text-align: center;
+      overflow-x: scroll;
+    }
+    .li:hover{
+      color:#F7CB4D;
+      border-bottom:2px solid #F7CB4D;
+    }
+
+    .h1{
+      @include side_border();
+    }

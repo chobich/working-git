@@ -1,0 +1,19 @@
+.info-box
+  .member-info
+    .member-info__name
+      .h1
+        メンバー
+      .p
+        = @group_member.member.name
+    .member-info__group
+      .h1
+        所属グループ
+      .p
+        = @group_member.name
+  .project-info
+    .project-info__title
+      担当プロジェクト一覧
+    .project-info__list
+    -@project_viewlist.each do |project|
+      .li
+        =project

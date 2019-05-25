@@ -1,0 +1,47 @@
+.member-name
+  =@group_member.member.name
+  のタスク一覧
+
+.task-table
+  .task-table-upper
+    .task-table-upper-title
+      .task-table-upper-title__left
+        A:　重要度　高　緊急度　高
+      .task-table-upper-title__right
+        B:　重要度　高　緊急度　低
+    .task-table-upper-content
+      .task-table-upper-content__left
+        -task_priorityA.each do |taskA|
+          .p
+            .task-table-upper-content__left__project
+              =taskA.project.name
+            .task-table-upper-content__left__content
+              =taskA.content
+      .task-table-upper-content__right
+        -task_priorityB.each do |taskB|
+          .p
+            .task-table-upper-content__right__project
+              =taskB.project.name
+            .task-table-upper-content__right__content
+              =taskB.content
+  .task-table-lower
+    .task-table-lower-title
+      .task-table-lower-title__left
+        C:　重要度　低　緊急度　高
+      .task-table-lower-title__right
+        D:　重要度　低　緊急度　低
+    .task-table-lower-content
+      .task-table-lower-content__left
+        -task_priorityC.each do |taskC|
+          .p
+            .task-table-lower-content__left__project
+              =taskC.project.name
+            .task-table-lower-content__left__content
+              =taskC.content
+      .task-table-lower-content__right
+        -task_priorityD.each do |taskD|
+          .p
+            .task-table-lower-content__right__project
+              =taskD.project.name
+            .task-table-lower-content__right__content
+              =taskD.content
