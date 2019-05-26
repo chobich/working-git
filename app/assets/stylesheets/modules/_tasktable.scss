@@ -92,11 +92,11 @@
         @include table-column();
 
       &__content{
-
+        //タスクの編集・削除機能の導入時に編集
 
       }
       &__project{
-
+        //タスクの編集・削除機能の導入時に編集
       }
       }
       &__right{
@@ -125,10 +125,10 @@
       }
       &__left{
         @include table-column();
-      &__content{
+      &__content{        //タスクの編集・削除機能の導入時に編集
       }
 
-      &__project{
+      &__project{        //タスクの編集・削除機能の導入時に編集
       }
 
       }

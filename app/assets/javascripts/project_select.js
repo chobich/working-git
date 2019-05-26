@@ -10,7 +10,6 @@ $(document).on('turbolinks:load', function() {
 
     $('select[name="project[name]"]').change('click',function(){
     var project = $('select[name="project[name]"]').prop('selected', true).val();
-    console.log(project)
     if (project == "新しく登録する"){
       var insertHTML = '';
       insertHTML = buildNewProjectHTML();
